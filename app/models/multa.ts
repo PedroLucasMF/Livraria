@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, hasMany} from '@adonisjs/lucid/orm'
+import { column, BaseModel, hasOne } from '@adonisjs/lucid/orm'
 import Emprestimo from './emprestimo.js'
-import { HasMany} from '@adonisjs/lucid/types/relations'
+import type { HasOne } from '@adonisjs/lucid/types/relations'
 
 
 
@@ -10,7 +10,7 @@ export default class Multa extends BaseModel {
   declare id: number
 
   @column()
-  declare valor:number
+  declare valor: number
 
   @column()
   declare status:string
@@ -18,8 +18,8 @@ export default class Multa extends BaseModel {
   @column()
   declare dt_pagamento:string
 
-  @hasMany(()=> Emprestimo)
-  declare emprestimo: HasMany<typeof Emprestimo>
+  @hasOne(() => Emprestimo)
+  declare emprestimo_id: HasOne<typeof Emprestimo>
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime

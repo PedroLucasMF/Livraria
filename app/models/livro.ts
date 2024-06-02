@@ -21,7 +21,7 @@ export default class Livro extends BaseModel {
   declare qnt_Total:Number
 
   @column()
-  declare qnt_Disponivel:string
+  declare qnt_Disponivel:Number
 
   @column()
   declare isbn:Number

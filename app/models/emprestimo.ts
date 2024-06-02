@@ -21,10 +21,10 @@ export default class Emprestimo extends BaseModel {
   declare status:string
 
   @hasOne(()=> Livro)
-  declare livro: HasOne<typeof Livro>
+  declare livro_id: HasOne<typeof Livro>
 
   @hasOne(()=> Membro)
-  declare membro: HasOne<typeof Membro>
+  declare membro_id: HasOne<typeof Membro>
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
