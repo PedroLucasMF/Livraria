@@ -10,8 +10,9 @@ export default class extends BaseSchema {
       table.string('dt_devolucao', 45).notNullable()
       table.string('dt_prevista', 45).notNullable()
       table.string('status', 45).notNullable()
-      table.integer('livro_id').unsigned().references('id').inTable('Livro').notNullable()
-      table.integer('membro_id').unsigned().references('id').inTable('Membro').notNullable()
+      table.integer('livro_id').unsigned().references('id').inTable('livro').notNullable()
+      table.integer('membro_id').unsigned().references('id').inTable('membro').notNullable()
+      table.integer('multa_id').unsigned().references('id').inTable('multa').notNullable()
 
       table.timestamp('created_at')
       table.timestamp('updated_at')

@@ -13,6 +13,7 @@ export default class extends BaseSchema {
       table.string('endereco').notNullable()
       table.string('dt_associacao').notNullable()
       table.string('status').notNullable()
+      table.integer('emprestimo_id').unsigned().references('id').inTable('emprestimo').notNullable()
 
       table.timestamp('created_at')
       table.timestamp('updated_at')

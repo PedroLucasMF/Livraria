@@ -9,6 +9,7 @@ export default class EmprestimosController {
 
         return await Emprestimo.query().preload('livro')
                                     .preload('membro')
+                                    .preload('multa')
                                     .paginate(page,perPage)
     }
 
@@ -18,20 +19,21 @@ export default class EmprestimosController {
                             .where('id', params.id)
                             .preload('livro')
                             .preload('membro')
+                            .preload('multa')
                             .first()
 
     } 
 
     async store({request}: HttpContext){
         
-        const dados = request.only(['dt_emprestimo', 'dt_evolucao', 'dt_prevista', 'livro', 'membro'])
+        const dados = request.only(['dt_emprestimo', 'dt_devolucao', 'dt_prevista', 'livroId', 'membroId', 'status', 'multaId'])
         
         return await Emprestimo.create(dados)
     } 
 
     async update({params, request}: HttpContext){
         const item = await Emprestimo.findOrFail(params.id)
-        const dados = request.only(['dt_emprestimo', 'dt_evolucao', 'dt_prevista', 'livro', 'membro'])
+        const dados = request.only(['dt_emprestimo', 'dt_devolucao', 'dt_prevista', 'livroId', 'membroId', 'status', 'multaId'])
 
         item.merge(dados)
 

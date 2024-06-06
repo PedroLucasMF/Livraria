@@ -10,7 +10,8 @@ export default class extends BaseSeeder {
         telefone: '9992-0087',
         endereco: 'shs 8 conj r casa 3',
         dt_associacao: '08/09/2018',
-        status : 'Ativo'},
+        status : 'Ativo',
+        emprestimoId: 1},
 
         {nome: 'Ana',
         cpf: '789-053-651-33',
@@ -18,7 +19,8 @@ export default class extends BaseSeeder {
         telefone: '972-653-077-51',
         endereco: 'qrr 301 conj d lote 1',
         dt_associacao: '09/08/2020',
-        status : 'Inativo'}
+        status : 'Inativo',
+        emprestimoId: 2}
     ])
   }
 }

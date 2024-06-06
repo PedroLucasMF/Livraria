@@ -16,14 +16,14 @@ import type { HttpContext } from '@adonisjs/core/http'
     
         async store({request}: HttpContext){
             
-            const dados = request.only(['nome', 'cpf', 'email', 'telefone', 'endereco', 'cargo', 'salario'])
+            const dados = request.only(['nome', 'cpf', 'email', 'telefone', 'endereco', 'cargo', 'salario', 'dt_contratacao'])
             
             return await Funcionario.create(dados)
         } 
     
         async update({params, request}: HttpContext){
             const item = await Funcionario.findOrFail(params.id)
-            const dados = request.only(['nome', 'cpf', 'email', 'telefone', 'endereco', 'cargo', 'salario'])
+            const dados = request.only(['nome', 'cpf', 'email', 'telefone', 'endereco', 'cargo', 'salario', 'dt_contratacao'])
     
             item.merge(dados)
     

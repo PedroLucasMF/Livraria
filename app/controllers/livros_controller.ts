@@ -16,14 +16,14 @@ export default class LivrosController {
 
     async store({request}: HttpContext){
         
-        const dados = request.only(['titulo', 'autor', 'editora', 'ano_publicacao', 'qnt_total', 'qnt_Disponivel', 'isbn'])
+        const dados = request.only(['titulo', 'autor', 'editora', 'ano_Publicacao', 'qnt_Total', 'qnt_Disponivel', 'isbn', 'emprestimoId'])
         
         return await Livro.create(dados)
     } 
 
     async update({params, request}: HttpContext){
         const item = await Livro.findOrFail(params.id)
-        const dados = request.only(['titulo', 'autor', 'editora', 'ano_publicacao', 'qnt_total', 'qnt_Disponivel', 'isbn'])
+        const dados = request.only(['titulo', 'autor', 'editora', 'ano_Publicacao', 'qnt_Total', 'qnt_Disponivel', 'isbn', 'emprestimoId'])
 
         item.merge(dados)
 

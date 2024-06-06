@@ -9,10 +9,11 @@ export default class extends BaseSchema {
       table.string('titulo', 45).notNullable()
       table.string('autor', 45).notNullable()
       table.string('editora', 45).notNullable()
-      table.string('ano_Publicacao', 45).notNullable()
+      table.integer('ano_Publicacao')
       table.integer('qnt_Total').notNullable()
       table.integer('qnt_Disponivel').notNullable()
       table.integer('isbn').notNullable()
+      table.integer('emprestimo_id').unsigned().references('id').inTable('emprestimo')
 
       table.timestamp('created_at')
       table.timestamp('updated_at')

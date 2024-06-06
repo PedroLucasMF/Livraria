@@ -17,14 +17,14 @@ export default class MembrosController {
 
     async store({request}: HttpContext){
         
-        const dados = request.only(['nome', 'cpf', 'email', 'telefone', 'endereco', 'status', 'dt_associacao'])
+        const dados = request.only(['nome', 'cpf', 'email', 'telefone', 'endereco', 'status', 'dt_associacao', 'emprestimoId'])
         
         return await Membro.create(dados)
     } 
 
     async update({params, request}: HttpContext){
         const item = await Membro.findOrFail(params.id)
-        const dados = request.only(['nome', 'cpf', 'email', 'telefone', 'endereco', 'status', 'dt_associacao'])
+        const dados = request.only(['nome', 'cpf', 'email', 'telefone', 'endereco', 'status', 'dt_associacao', 'emprestimoId'])
 
         item.merge(dados)
 

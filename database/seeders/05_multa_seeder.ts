@@ -7,13 +7,13 @@ export default class extends BaseSeeder {
       {valor: 0.0,
         status: 'quitado',
         dt_pagamento: '',
-        emprestimo_id: 1
+        emprestimoId: 1
         },
 
         {valor: 3.0,
           status: 'pedente',
           dt_pagamento: '',
-          emprestimo_id: 2}
+          emprestimoId: 2}
     ])
   }
 }

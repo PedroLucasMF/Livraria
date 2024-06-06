@@ -7,29 +7,26 @@ export default class MultasController {
         const page = request.input('page', 1)
         const perPage = request.input('perPage', 10)
 
-        return await Multa.query().preload('emprestimo')
-                                    .paginate(page,perPage)
+        return await Multa.query().paginate(page,perPage)
     }
 
     async show({params}: HttpContext){
     //    return await Produto.findOrFail(params.id)
         return await Multa.query()
                             .where('id', params.id)
-                            .preload('emprestimo')
-                            .first()
 
     } 
 
     async store({request}: HttpContext){
         
-        const dados = request.only(['valor', 'status', 'dt_pagamento', 'emprestimo'])
+        const dados = request.only(['valor', 'status', 'dt_pagamento', 'emprestimoId'])
         
         return await Multa.create(dados)
     } 
 
     async update({params, request}: HttpContext){
         const item = await Multa.findOrFail(params.id)
-        const dados = request.only(['valor', 'status', 'dt_pagamento', 'emprestimo'])
+        const dados = request.only(['valor', 'status', 'dt_pagamento', 'emprestimoId'])
 
         item.merge(dados)
 

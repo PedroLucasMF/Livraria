@@ -8,8 +8,8 @@ export default class extends BaseSchema {
       table.increments('id')
       table.integer('valor', 45).notNullable()
       table.string('status', 45).notNullable()
-      table.string('dt_pagamento', 45).notNullable()
-      table.integer('emprestimo_id').unsigned().references('id').inTable('Emprestimo').notNullable()
+      table.string('dt_pagamento', 45)
+      table.integer('emprestimo_id').unsigned().references('id').inTable('emprestimo').notNullable()
 
       table.timestamp('created_at')
       table.timestamp('updated_at')

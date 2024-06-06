@@ -10,7 +10,8 @@ export default class extends BaseSeeder {
         ano_Publicacao: '2001',
         qnt_Total: 10,
         qnt_Disponivel: 2,
-        isbn: 9782123456803},
+        isbn: 9782123456803,
+        emprestimoId: 1},
 
         {titulo: 'Sangue dos Elfos',
         autor: 'Andrez',
@@ -18,7 +19,8 @@ export default class extends BaseSeeder {
         ano_Publicacao: '2003',
         qnt_Total: 5,
         qnt_Disponivel: 4,
-        isbn: 9782123456803}
+        isbn: 9782123456803,
+        emprestimoId: 2}
     ])
   }
 }
